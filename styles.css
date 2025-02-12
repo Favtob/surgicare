@@ -1,0 +1,486 @@
+/* Global Styles */
+:root {
+    --primary-color: #4A90E2;
+    --secondary-color: #F5A623;
+    --success-color: #7ED321;
+    --danger-color: #D0021B;
+    --light-gray: #F8F9FA;
+    --dark-gray: #343A40;
+    --border-radius: 8px;
+    --transition: all 0.3s ease;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    line-height: 1.6;
+    color: var(--dark-gray);
+    background-color: var(--light-gray);
+}
+
+.app-container {
+    min-height: 100vh;
+}
+
+/* Login Styles */
+.login-container {
+    max-width: 400px;
+    margin: 50px auto;
+    padding: 20px;
+    background: white;
+    border-radius: var(--border-radius);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.role-selector {
+    display: flex;
+    justify-content: space-between;
+    margin: 20px 0;
+}
+
+.role-btn {
+    flex: 1;
+    margin: 0 5px;
+    padding: 10px;
+    border: none;
+    border-radius: var(--border-radius);
+    background: var(--light-gray);
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.role-btn:hover {
+    background: var(--primary-color);
+    color: white;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: var(--border-radius);
+}
+
+/* Dashboard Common Styles */
+.dashboard-section {
+    display: flex;
+    min-height: 100vh;
+}
+
+.dashboard-nav {
+    width: 250px;
+    background: white;
+    padding: 20px;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+}
+
+.dashboard-content {
+    flex: 1;
+    padding: 20px;
+}
+
+.nav-items {
+    list-style: none;
+    margin-top: 20px;
+}
+
+.nav-items li a {
+    display: block;
+    padding: 10px;
+    color: var(--dark-gray);
+    text-decoration: none;
+    transition: var(--transition);
+}
+
+.nav-items li a:hover {
+    background: var(--light-gray);
+    border-radius: var(--border-radius);
+}
+
+/* Child Dashboard Specific Styles */
+.child-interface {
+    background: #FFF9C4;
+    padding: 20px;
+    border-radius: var(--border-radius);
+}
+
+.child-header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.child-avatar {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    border: 4px solid var(--secondary-color);
+}
+
+.progress-path {
+    background: white;
+    padding: 20px;
+    border-radius: var(--border-radius);
+    margin: 20px 0;
+}
+
+
+
+/* Surgeon Dashboard Specific Styles */
+.surgeon-nav {
+    background: var(--dark-gray);
+    color: white;
+}
+
+.patient-filters {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.patient-filters select {
+    padding: 8px;
+    border-radius: var(--border-radius);
+    border: 1px solid #ddd;
+}
+
+/* Utility Classes */
+.hidden {
+    display: none;
+}
+
+.primary-btn {
+    background: var(--primary-color);
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.primary-btn:hover {
+    background: darken(var(--primary-color), 10%);
+} */
+
+/* Responsive Design */
+
+
+
+/* Enhanced Profile Styles */
+.profile-section {
+    background: white;
+    padding: 20px;
+    border-radius: var(--border-radius);
+    margin-bottom: 20px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.profile-field {
+    display: flex;
+    margin: 10px 0;
+    padding: 8px 0;
+    border-bottom: 1px solid #eee;
+}
+
+.profile-field label {
+    font-weight: bold;
+    width: 150px;
+}
+
+/* Care Instructions Styles */
+.care-sections {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    padding: 20px;
+}
+
+.care-card {
+    background: white;
+    padding: 20px;
+    border-radius: var(--border-radius);
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.care-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+/* Messages Styles */
+.messages-container {
+    display: flex;
+    flex-direction: column;
+    height: calc(100vh - 200px);
+}
+
+.messages-list {
+    flex: 1;
+    overflow-y: auto;
+    padding: 20px;
+    background: white;
+    border-radius: var(--border-radius);
+    margin-bottom: 20px;
+}
+
+.message-compose {
+    display: flex;
+    gap: 10px;
+    padding: 20px;
+    background: white;
+    border-radius: var(--border-radius);
+}
+
+.message-compose textarea {
+    flex: 1;
+    min-height: 80px;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: var(--border-radius);
+    resize: none;
+}
+
+/* Appointments Styles */
+.appointments-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    padding: 20px;
+}
+
+.upcoming-appointments,
+.schedule-appointment {
+    background: white;
+    padding: 20px;
+    border-radius: var(--border-radius);
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+/* Resources Styles */
+.resources-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+    padding: 20px;
+}
+
+.resource-card {
+    background: white;
+    padding: 20px;
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.resource-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+
+
+/* Child Dashboard Styles */
+.child-interface {
+    background: #FFF9C4;
+    padding: 20px;
+    min-height: 100vh;
+}
+
+.healing-stories {
+    background: white;
+    padding: 20px;
+    border-radius: var(--border-radius);
+    margin: 20px 0;
+}
+
+.story-carousel {
+    display: flex;
+    overflow-x: auto;
+    padding: 20px 0;
+    gap: 20px;
+}
+
+.daily-missions {
+    background: white;
+    padding: 20px;
+    border-radius: var(--border-radius);
+    margin: 20px 0;
+}
+
+.missions-list {
+    display: grid;
+    gap: 10px;
+    margin: 20px 0;
+}
+
+.mission-card {
+    background: var(--light-gray);
+    padding: 15px;
+    border-radius: var(--border-radius);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.mission-progress {
+    background: white;
+    height: 20px;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.progress-bar {
+    height: 100%;
+    background: var(--success-color);
+    transition: width 0.3s ease;
+}
+
+/* Game Styles */
+.recovery-game {
+    background: white;
+    padding: 20px;
+    border-radius: var(--border-radius);
+    margin: 20px 0;
+}
+
+#game-canvas {
+    width: 100%;
+    height: 400px;
+    background: #000;
+    border-radius: var(--border-radius);
+}
+
+.game-controls {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 10px;
+}
+
+/* Achievement Styles */
+.achievements {
+    background: white;
+    padding: 20px;
+    border-radius: var(--border-radius);
+    margin: 20px 0;
+}
+
+.badges-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+    gap: 20px;
+    padding: 20px;
+}
+
+.badge-item {
+    text-align: center;
+}
+
+
+/* Surgeon Dashboard Specific Styles */
+.surgeon-panel {
+    padding: 20px;
+}
+
+.patient-filters {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.patient-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+}
+
+.patient-card {
+    background: white;
+    padding: 20px;
+    border-radius: var(--border-radius);
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.patient-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+.records-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+}
+
+.communications-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+.analytics-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    gap: 20px;
+}
+
+.chart-container {
+    background: white;
+    padding: 20px;
+    border-radius: var(--border-radius);
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.protocols-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+}
+
+.protocol-card {
+    background: white;
+    padding: 20px;
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.protocol-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .appointments-container,
+    .communications-container {
+        grid-template-columns: 1fr;
+    }
+
+    .care-sections {
+        grid-template-columns: 1fr;
+    }
+
+    .analytics-grid {
+        grid-template-columns: 1fr;
+    }
+}

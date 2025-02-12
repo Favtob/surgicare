@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KidsOR Post-Surgery Check-up Portal</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Login Section -->
+        <section id="login-section" class="active-section">
+            <div class="login-container">
+                <h1>Welcome to KidsOR</h1>
+                <div class="role-selector">
+                    <button class="role-btn" data-role="parent">Parent</button>
+                    <button class="role-btn" data-role="child">Child</button>
+                    <button class="role-btn" data-role="surgeon">Surgeon</button>
+                </div>
+                <form id="login-form" class="hidden">
+                    <div class="form-group">
+                        <label for="username">Email/Phone</label>
+                        <input type="text" id="username" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="password">Password</label>
+                        <input type="password" id="password" required>
+                    </div>
+                    <button type="submit" class="primary-btn">Login</button>
+                    <a href="#" class="forgot-password">Forgot Password?</a>
+                </form>
+            </div>
+        </section>
+
+        <!-- Parent Dashboard -->
+        <section id="parent-dashboard" class="dashboard-section hidden">
+            <nav class="dashboard-nav">
+                <div class="user-info">
+                    <img src="images\345bbeaf-802c-4b06-b8db-faccaea8a5d4.jpeg" alt="Profile" class="profile-pic">
+                    <span class="username">Parent Name</span>
+                </div>
+                <ul class="nav-items">
+                    <li><a href="#profile">Child's Profile</a></li>
+                    <li><a href="#care">Care Instructions</a></li>
+                    <li><a href="#tracking">Recovery Tracking</a></li>
+                    <li><a href="#messages">Messages</a></li>
+                    <li><a href="#appointments">Appointments</a></li>
+                    <li><a href="#resources">Resources</a></li>
+                </ul>
+                <button class="logout-btn">Logout</button>
+            </nav>
+            <main class="dashboard-content">
+                <!-- Enhanced Child Profile Section -->
+                <div id="profile" class="dashboard-panel">
+                    <h2>Child's Profile</h2>
+                    <div class="profile-details">
+                        <div class="profile-section">
+                            <h3>Personal Information</h3>
+                            <div class="profile-field">
+                                <label>Name:</label>
+                                <span id="child-name">John Doe</span>
+                            </div>
+                            <div class="profile-field">
+                                <label>Age:</label>
+                                <span id="child-age">8</span>
+                            </div>
+                            <div class="profile-field">
+                                <label>Date of Birth:</label>
+                                <span id="child-dob">January 15, 2016</span>
+                            </div>
+                            <div class="profile-field">
+                                <label>Blood Type:</label>
+                                <span id="child-blood-type">A+</span>
+                            </div>
+                        </div>
+                        
+                        <div class="profile-section">
+                            <h3>Medical Information</h3>
+                            <div class="profile-field">
+                                <label>Surgery Type:</label>
+                                <span id="surgery-type">Appendectomy</span>
+                            </div>
+                            <div class="profile-field">
+                                <label>Surgery Date:</label>
+                                <span id="surgery-date">2025-02-01</span>
+                            </div>
+                            <div class="profile-field">
+                                <label>Allergies:</label>
+                                <span id="child-allergies">Penicillin</span>
+                            </div>
+                            <div class="profile-field">
+                                <label>Emergency Contact:</label>
+                                <span id="emergency-contact">Jane Doe - 555-0123</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Care Instructions Panel -->
+                <div id="care" class="dashboard-panel hidden">
+                    <h2>Care Instructions</h2>
+                    <div class="care-sections">
+                        <div class="care-card clickable" onclick="app.showCareDetails('medications')">
+                            <h3>Medications</h3>
+                            <div class="care-content" id="medications-content"></div>
+                        </div>
+                        <div class="care-card clickable" onclick="app.showCareDetails('wound-care')">
+                            <h3>Wound Care</h3>
+                            <div class="care-content" id="wound-care-content"></div>
+                        </div>
+                        <div class="care-card clickable" onclick="app.showCareDetails('activities')">
+                            <h3>Activity Guidelines</h3>
+                            <div class="care-content" id="activities-content"></div>
+                        </div>
+                        <div class="care-card clickable" onclick="app.showCareDetails('diet')">
+                            <h3>Diet Recommendations</h3>
+                            <div class="care-content" id="diet-content"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Messages Panel -->
+                <div id="messages" class="dashboard-panel hidden">
+                    <h2>Messages</h2>
+                    <div class="messages-container">
+                        <div class="messages-list" id="messages-list"></div>
+                        <div class="message-compose">
+                            <textarea id="message-input" placeholder="Type your message..."></textarea>
+                            <button onclick="app.sendMessage()" class="primary-btn">Send</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Appointments Panel -->
+                <div id="appointments" class="dashboard-panel hidden">
+                    <h2>Appointments</h2>
+                    <div class="appointments-container">
+                        <div class="upcoming-appointments">
+                            <h3>Upcoming Appointments</h3>
+                            <div id="appointments-list"></div>
+                        </div>
+                        <div class="schedule-appointment">
+                            <h3>Schedule New Appointment</h3>
+                            <form id="appointment-form">
+                                <div class="form-group">
+                                    <label>Date</label>
+                                    <input type="date" id="appointment-date" required>
+                                </div>
+                                <div class="form-group">
+                                    <label>Time</label>
+                                    <input type="time" id="appointment-time" required>
+                                </div>
+                                <div class="form-group">
+                                    <label>Type</label>
+                                    <select id="appointment-type" required>
+                                        <option value="followup">Follow-up Visit</option>
+                                        <option value="wound-check">Wound Check</option>
+                                        <option value="therapy">Physical Therapy</option>
+                                    </select>
+                                </div>
+                                <button type="submit" class="primary-btn">Schedule</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Resources Panel -->
+                <div id="resources" class="dashboard-panel hidden">
+                    <h2>Resources</h2>
+                    <div class="resources-grid">
+                        <div class="resource-card clickable" onclick="app.showResource('recovery-guides')">
+                            <h3>Recovery Guides</h3>
+                            <p>Step-by-step guides for post-surgery care</p>
+                        </div>
+                        <div class="resource-card clickable" onclick="app.showResource('nutrition')">
+                            <h3>Nutrition Tips</h3>
+                            <p>Dietary recommendations for faster recovery</p>
+                        </div>
+                        <div class="resource-card clickable" onclick="app.showResource('exercises')">
+                            <h3>Exercise Videos</h3>
+                            <p>Safe physical activities during recovery</p>
+                        </div>
+                        <div class="resource-card clickable" onclick="app.showResource('faq')">
+                            <h3>FAQs</h3>
+                            <p>Common questions and answers</p>
+                        </div>
+                    </div>
+                </div>
+            </main>
+        </section>
+
+        <!-- Child Dashboard -->
+        <section id="child-dashboard" class="dashboard-section hidden">
+            <div class="child-interface">
+                <header class="child-header">
+                    <h1>Hello, <span id="child-dashboard-name">Buddy</span>! 🌟</h1>
+                    <div class="avatar-container">
+                        <img src="images\94585050-3171-47fc-a199-2a6939c49e03.jpeg" alt="Your Avatar" class="child-avatar">
+                    </div>
+                </header>
+
+                <!-- Healing Journey Stories -->
+                <div class="healing-stories">
+                    <h2>Your Healing Adventure! 📚</h2>
+                    <div class="story-carousel">
+                        <!-- Stories will be added dynamically -->
+                    </div>
+                </div>
+
+                <!-- Daily Missions -->
+                <div class="daily-missions">
+                    <h2>Today's Quests 🎯</h2>
+                    <div class="missions-list">
+                        <!-- Missions will be added dynamically -->
+                    </div>
+                    <div class="mission-progress">
+                        <div class="progress-bar"></div>
+                        <span class="progress-text">0/5 Missions Complete</span>
+                    </div>
+                </div>
+
+                <!-- Recovery Game -->
+                <div class="recovery-game">
+                    <h2>Recovery Champion Game 🎮</h2>
+                    <div class="game-container">
+                        <canvas id="game-canvas"></canvas>
+                        <div class="game-controls">
+                            <button onclick="app.startGame()" class="game-btn">Start Game</button>
+                            <div class="game-score">Score: <span id="game-score">0</span></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Achievement Badges -->
+                <div class="achievements">
+                    <h2>Your Badges 🏆</h2>
+                    <div class="badges-grid">
+                        <!-- Badges will be added dynamically -->
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Surgeon Dashboard -->
+        <section id="surgeon-dashboard" class="dashboard-section hidden">
+            <nav class="surgeon-nav">
+                <div class="user-info">
+                    <img src="images\221b050f-cc94-44cd-a1b7-51279eab33f2.jpeg" alt="Doctor Profile" class="profile-pic">
+                    <span class="username">Dr. Ayomide</span>
+                </div>
+                <ul class="nav-items">
+                    <li><a href="#patients">Patient List</a></li>
+                    <li><a href="#records">Medical Records</a></li>
+                    <li><a href="#communications">Communications</a></li>
+                    <li><a href="#analytics">Analytics</a></li>
+                    <li><a href="#protocols">Guidelines</a></li>
+                </ul>
+                <button class="logout-btn">Logout</button>
+            </nav>
+            <main class="surgeon-content">
+                <div id="patients" class="surgeon-panel">
+                    <h2>Patient Dashboard</h2>
+                    <div class="patient-filters">
+                        <select id="surgery-filter">
+                            <option value="">All Surgeries</option>
+                            <!-- Options will be added dynamically -->
+                        </select>
+                        <select id="status-filter">
+                            <option value="">All Statuses</option>
+                            <!-- Options will be added dynamically -->
+                        </select>
+                    </div>
+                    <div class="patient-list">
+                        <!-- Patient cards will be added dynamically -->
+                    </div>
+                </div>
+            </main>
+        </section>
+    </div>
+    <script src="app.js"></script>
+</body>
+</html>
