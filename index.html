@@ -11,7 +11,7 @@
         <!-- Login Section -->
         <section id="login-section" class="active-section">
             <div class="login-container">
-                <h1>Welcome to KidsOR</h1>
+                <h1>Welcome to SurgiCare</h1>
                 <div class="role-selector">
                     <button class="role-btn" data-role="parent">Parent</button>
                     <button class="role-btn" data-role="child">Child</button>
@@ -36,7 +36,7 @@
         <section id="parent-dashboard" class="dashboard-section hidden">
             <nav class="dashboard-nav">
                 <div class="user-info">
-                    <img src="images\345bbeaf-802c-4b06-b8db-faccaea8a5d4.jpeg" alt="Profile" class="profile-pic">
+                    <img src="" alt="Profile" class="profile-pic">
                     <span class="username">Parent Name</span>
                 </div>
                 <ul class="nav-items">
@@ -90,7 +90,7 @@
                             </div>
                             <div class="profile-field">
                                 <label>Emergency Contact:</label>
-                                <span id="emergency-contact">Jane Doe - 555-0123</span>
+                                <span id="emergency-contact">Sikiru Ayinde - +2347062835291</span>
                             </div>
                         </div>
                     </div>
@@ -119,6 +119,28 @@
                     </div>
                 </div>
 
+                <!-- Recovery Tracking -->
+                <div id="tracking" class="dashboard-panel hidden">
+                    <h2>Recovery Tracking</h2>
+                    <div class="symptom-log">
+                        <h3>Daily Symptom Log</h3>
+                        <form id="symptom-form">
+                            <div class="form-group">
+                                <label>Pain Level (1-10)</label>
+                                <input type="range" min="1" max="10" class="pain-slider">
+                            </div>
+                            <div class="form-group">
+                                <label>Temperature</label>
+                                <input type="number" step="0.1" class="temp-input">
+                            </div>
+                            <div class="form-group">
+                                <label>Notes</label>
+                                <textarea class="symptom-notes"></textarea>
+                            </div>
+                            <button type="submit" class="primary-btn">Save Log</button>
+                        </form>
+                    </div>
+                </div>                    
                 <!-- Messages Panel -->
                 <div id="messages" class="dashboard-panel hidden">
                     <h2>Messages</h2>
@@ -245,7 +267,7 @@
         <section id="surgeon-dashboard" class="dashboard-section hidden">
             <nav class="surgeon-nav">
                 <div class="user-info">
-                    <img src="images\221b050f-cc94-44cd-a1b7-51279eab33f2.jpeg" alt="Doctor Profile" class="profile-pic">
+                    <img src="" alt="Doctor Profile" class="profile-pic">
                     <span class="username">Dr. Ayomide</span>
                 </div>
                 <ul class="nav-items">
@@ -263,17 +285,84 @@
                     <div class="patient-filters">
                         <select id="surgery-filter">
                             <option value="">All Surgeries</option>
-                            <!-- Options will be added dynamically -->
+                            <option value="">All Surgeries</option>
+                            <option value="appendectomy">Appendectomy</option>
+                            <option value="tonsillectomy">Tonsillectomy</option>
+                            <option value="hernia">Hernia Repair</option>
+                            <option value="fracture">Fracture Repair</option>
                         </select>
                         <select id="status-filter">
                             <option value="">All Statuses</option>
-                            <!-- Options will be added dynamically -->
+                            <option value="">All Statuses</option>
+                            <option value="pre-op">Pre-Op</option>
+                            <option value="post-op">Post-Op</option>
+                            <option value="recovery">Recovery</option>
+                            <option value="completed">Completed</option>
                         </select>
                     </div>
                     <div class="patient-list">
-                        <!-- Patient cards will be added dynamically -->
+          <!--will be updated dynamically-->
+                </div>
+
+                  <!-- Medical Records Panel -->
+                  <div id="records" class="surgeon-panel hidden">
+                    <h2>Medical Records</h2>
+                    <div class="records-search">
+                        <input type="text" id="records-search" placeholder="Search records...">
+                    </div>
+                    <div class="records-grid">
+                        <!-- Records will be added dynamically -->
                     </div>
                 </div>
+
+                <!-- Communications Panel -->
+                <div id="communications" class="surgeon-panel hidden">
+                    <h2>Communications Hub</h2>
+                    <div class="communications-container">
+                        <div class="messages-list">
+                            <!-- Messages will be added dynamically -->
+                        </div>
+                        <div class="video-calls">
+                            <h3>Scheduled Video Consultations</h3>
+                            <!-- Video calls will be added dynamically -->
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Analytics Panel -->
+                <div id="analytics" class="surgeon-panel hidden">
+                    <h2>Analytics Dashboard</h2>
+                    <div class="analytics-grid">
+                        <div class="chart-container">
+                            <h3>Recovery Progress</h3>
+                            <canvas id="recovery-chart"></canvas>
+                        </div>
+                        <div class="chart-container">
+                            <h3>Patient Outcomes</h3>
+                            <canvas id="outcomes-chart"></canvas>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Guidelines Panel -->
+                <div id="protocols" class="surgeon-panel hidden">
+                    <h2>Clinical Guidelines</h2>
+                    <div class="protocols-grid">
+                        <div class="protocol-card" onclick="app.showProtocol('pre-op')">
+                            <h3>Pre-operative Protocols</h3>
+                        </div>
+                        <div class="protocol-card" onclick="app.showProtocol('post-op')">
+                            <h3>Post-operative Care</h3>
+                        </div>
+                        <div class="protocol-card" onclick="app.showProtocol('complications')">
+                            <h3>Complication Management</h3>
+                        </div>
+                        <div class="protocol-card" onclick="app.showProtocol('discharge')">
+                            <h3>Discharge Criteria</h3>
+                        </div>
+                    </div>
+                </div>
+                
             </main>
         </section>
     </div>
